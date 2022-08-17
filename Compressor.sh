@@ -6,9 +6,12 @@ echo "Downloading needed packages"
 pkg install build-essential git ninja -y
 echo "Downloading source"
 git clone https://github.com/CharlesThobe/chdman.git
+cd ./chdman || exit
+else
+cd ./chdman || exit
+git pull
 fi
 echo "Compiling"
-cd ./chdman || exit
 mkdir build && cd build || exit
 cmake -G Ninja .. && ninja
 echo "Moving chdman to $PATH and making it executable"
@@ -22,9 +25,12 @@ echo "Downloading needed packages"
 pkg install binutils build-essential git liblz4 libuv -y
 echo "Downloading source"
 git clone https://github.com/unknownbrackets/maxcso.git
+cd ./maxcso || exit
+else
+cd ./maxcso
+git pull
 fi
 echo "Compiling"
-cd ./maxcso || exit
 make
 echo "Moving Maxcso to $PATH and making it executable"
 cp ./maxcso "$PATH"/maxcso
