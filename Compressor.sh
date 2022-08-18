@@ -17,7 +17,7 @@ cmake -G Ninja .. && ninja
 echo "Moving chdman to $PATH and making it executable"
 cp ./chdman "$PATH"/chdman
 chmod +x "$PATH"/chdman
-cd .. || exit
+cd "$(dirname "$0")" || exit
 if ! command -v maxcso >> /dev/null; then
 echo "Maxcso not found! Downloading and installing!"
 
@@ -35,3 +35,4 @@ make
 echo "Moving Maxcso to $PATH and making it executable"
 cp ./maxcso "$PATH"/maxcso
 chmod +x "$PATH"/maxcso
+cd "$(dirname "$0")"
