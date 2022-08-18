@@ -17,7 +17,7 @@ cmake -G Ninja .. && ninja
 echo "Moving chdman to $PATH and making it executable"
 cp ./chdman "$PATH"/chdman
 chmod +x "$PATH"/chdman
-cd "$(dirname "$(readlink -f "$0")")" || exit
+cd .. || exit
 if ! command -v maxcso >> /dev/null; then
 echo "Maxcso not found! Downloading and installing!"
 
