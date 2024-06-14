@@ -12,7 +12,11 @@ cd ./chdman || exit
 git pull
 fi
 echo "Compiling"
-mkdir build && cd build || exit
+if [ -d "build" ]; then
+rm -rf build
+fi
+mkdir build || exit
+cd build || exit
 cmake -G Ninja .. && ninja
 echo "Moving chdman to $PATH and making it executable"
 cp ./chdman "$PATH"/chdman
